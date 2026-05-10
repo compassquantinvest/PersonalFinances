@@ -43,6 +43,31 @@ const sunoDividendos = [
   { ticker: 'ITSA4',  company: 'Itaúsa',            allocation:  5.0, dyExpected:  6.4, ceilingPrice: 11.50 },
 ].map((p) => ({ ...p, id: `suno-dividendos-${p.ticker}`, currentPrice: null }))
 
+const sunoValor = [
+  { ticker: 'VAMO3',  company: 'Vamos',               allocation: 10.0, ceilingPrice: 10.90, currentPrice:  3.76 },
+  { ticker: 'B3SA3',  company: 'B3',                  allocation: 10.0, ceilingPrice: 16.90, currentPrice: 17.93 },
+  { ticker: 'KLBN4',  company: 'Klabin',              allocation: 10.0, ceilingPrice:  5.60, currentPrice:  3.46 },
+  { ticker: 'TTEN3',  company: '3 Tentos',            allocation: 10.0, ceilingPrice: 16.80, currentPrice: 16.94 },
+  { ticker: 'PRIO3',  company: 'PRIO SA',             allocation: 10.0, ceilingPrice: 62.75, currentPrice: 63.25 },
+  { ticker: 'BRBI11', company: 'BR Advisory Partners', allocation:  7.5, ceilingPrice: 18.00, currentPrice: 17.63 },
+  { ticker: 'PNVL3',  company: 'Grupo Dimed',         allocation:  6.5, ceilingPrice: 13.12, currentPrice: 13.59 },
+  { ticker: 'SIMH3',  company: 'Simpar S.A.',         allocation: 10.0, ceilingPrice: 20.00, currentPrice: 10.60 },
+  { ticker: 'GMAT3',  company: 'Grupo Mateus',        allocation:  5.0, ceilingPrice:  6.10, currentPrice:  4.60 },
+  { ticker: 'TIMS3',  company: 'TIM Brasil',          allocation:  5.0, ceilingPrice: 18.60, currentPrice: 23.32 },
+  { ticker: 'VIVA3',  company: 'Vivara',              allocation:  5.0, ceilingPrice: 25.00, currentPrice: 24.80 },
+  { ticker: 'EZTC3',  company: 'Eztec',              allocation:  3.5, ceilingPrice: 14.00, currentPrice: 13.42 },
+  { ticker: 'BRKM5',  company: 'Braskem',             allocation:  2.5, ceilingPrice:  null, currentPrice:  8.98 },
+].map((p) => ({ ...p, id: `suno-valor-${p.ticker}`, dyExpected: null }))
+
+const finclassValor = [
+  { ticker: 'WIZC3', company: 'WIZ Co',         allocation: 2.0,  dyExpected: 6.72,  ceilingPrice: 10.50 },
+  { ticker: 'PRIO3', company: 'PRIO',            allocation: 4.5,  dyExpected: 0.00,  ceilingPrice: 69.24 },
+  { ticker: 'SLCE3', company: 'SLC Agrícola',    allocation: 2.0,  dyExpected: 7.97,  ceilingPrice: 23.28 },
+  { ticker: 'GMAT3', company: 'Grupo Mateus',    allocation: 2.5,  dyExpected: 6.01,  ceilingPrice:  6.92 },
+  { ticker: 'VAMO3', company: 'Vamos',           allocation: 2.0,  dyExpected: 4.41,  ceilingPrice:  5.54 },
+  { ticker: 'KEPL3', company: 'Kepler Weber',    allocation: 2.0,  dyExpected: 10.77, ceilingPrice:  9.55 },
+].map((p) => ({ ...p, id: `finclass-valor-${p.ticker}`, currentPrice: null }))
+
 const finclassFiis = [
   { ticker: 'PSEC11', company: 'Pátria Securities',                          allocation: 1.50, dyExpected: 13.23, ceilingPrice:  81.00 },
   { ticker: 'RBRX11', company: 'Patria Plus Multiestratégia Real Estate FII', allocation: 1.25, dyExpected: 12.51, ceilingPrice:   9.35 },
@@ -71,11 +96,18 @@ const updated = {
     ...(existing.dividendos || {}),
     Suno: sunoDividendos,
   },
+  valor: {
+    ...(existing.valor || {}),
+    Suno: sunoValor,
+    Finclass: finclassValor,
+  },
 }
 
 saveResearchPortfolios(updated)
 
-console.log(`Suno FIIs:       ${sunoFiis.length} posições`)
-console.log(`Suno Dividendos: ${sunoDividendos.length} posições`)
-console.log(`Finclass FIIs:   ${finclassFiis.length} posições`)
+console.log(`Suno FIIs:         ${sunoFiis.length} posições`)
+console.log(`Suno Dividendos:   ${sunoDividendos.length} posições`)
+console.log(`Finclass FIIs:     ${finclassFiis.length} posições`)
+console.log(`Suno Valor:        ${sunoValor.length} posições`)
+console.log(`Finclass Valor:    ${finclassValor.length} posições`)
 console.log('Carteiras atualizadas com sucesso.')
