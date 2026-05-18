@@ -47,3 +47,18 @@ Na primeira execucao do backend com o frontend aberto, o app faz bootstrap autom
 - Adicionar relatorios derivados em SQLite (dividendos mensais, custo medio, P/L realizado por periodo)
 - Integrar importacao de notas, CEI ou planilhas
 - Adicionar cotacao para outras classes com fontes especificas
+
+## Extra: padrao de numeros primos (2D e 3D)
+
+Se quiser visualizar padroes de primos:
+
+```bash
+node scripts/prime-pattern.mjs 21 200
+```
+
+- Primeiro parametro: tamanho da espiral de Ulam (use numero impar).
+- Segundo parametro: limite maximo para gerar pontos 3D em forma de helice.
+
+A saida mostra:
+- Mapa 2D com `●` para primos e `·` para nao primos.
+- Lista CSV (`n,x,y,z`) para plotagem 3D em qualquer ferramenta.
